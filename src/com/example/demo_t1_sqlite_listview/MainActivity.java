@@ -1,20 +1,33 @@
 package com.example.demo_t1_sqlite_listview;
 
+import android.app.Activity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.Menu;
+import android.widget.ListView;
+
+import com.example.demo_t1_sqlite_listview.database.AdressbuchAdapter;
 import com.example.demo_t1_sqlite_listview.database.AdressbuchOpenHandler;
 
-import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-
 public class MainActivity extends Activity {
-	private AdressbuchOpenHandler dbHandler;
+	private AdressbuchOpenHandler dbHandler;	
+	private AdressbuchAdapter adapter;
+	private ListView liste;
+	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+        liste = (ListView)findViewById(R.id.liste);
         dbHandler = new AdressbuchOpenHandler(this);
+        
+        Cursor c = dbHandler.query();        
+        
+        
+        adapter = new AdressbuchAdapter(this, c);
+        
+        liste.setAdapter(adapter);
         
     }
 

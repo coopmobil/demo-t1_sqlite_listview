@@ -2,6 +2,7 @@ package com.example.demo_t1_sqlite_listview.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -14,12 +15,12 @@ public class AdressbuchOpenHandler extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME = "adressbuch.db";
 	
 	// Name und Attribute der Tabelle Eintrag
-	private static final String _ID = "_id";
-	private static final String TABLE_NAME_EINTRAG = "eintrag";
-	private static final String EINTRAG_NAME = "name";
-	private static final String EINTRAG_VORNAME = "vorname";
-	private static final String EINTRAG_BDAY = "bday";
-	private static final String EINTRAG_FOTO = "foto";
+	public static final String _ID = "_id";
+	public static final String TABLE_NAME_EINTRAG = "eintrag";
+	public static final String EINTRAG_NAME = "name";
+	public static final String EINTRAG_VORNAME = "vorname";
+	public static final String EINTRAG_BDAY = "bday";
+	public static final String EINTRAG_FOTO = "foto";
 	
 	// Tabelle anlegen
 	private static final String TABLE_EINTRAG_CREATE
@@ -58,7 +59,8 @@ public class AdressbuchOpenHandler extends SQLiteOpenHelper {
         onCreate(db);
 	}
 	
-	public void insert (String name, String vorname, String bday, String foto) {
+	
+	public long insert (String name, String vorname, String bday, String foto) {
 		long rowId = -1;
 		try {
 			// Datenbank öffnen
@@ -72,10 +74,21 @@ public class AdressbuchOpenHandler extends SQLiteOpenHelper {
 			// in die Tabelle Eintrag einfügen
 			rowId = db.insert(TABLE_NAME_EINTRAG, null, values);
 		} catch (SQLiteException e) {
-			Log.e("AdressbuchOpenHandler", "insert()", e);
+			Log.e("AdressbuchOpenHandler", "insert()", e);			
 		} finally {
 			Log.d("AdressbuchOpenHandler", "insert(): rowId=" + rowId);
 		}
+		
+		return rowId;
+		
 	}
+	
+	public Cursor query() {
+		// ggf. Datenbank öffnen
+		SQLiteDatabase db = getWritableDatabase();
+		return db.query(TABLE_NAME_EINTRAG, null, null, null, null, null,
+				_ID + " DESC");
+	}
+
 
 }
