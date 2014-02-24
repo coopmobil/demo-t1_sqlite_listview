@@ -36,8 +36,9 @@ public class AdressbuchAdapter extends CursorAdapter {
 		name.setText(kundeName);
 		
 		TextView bday = (TextView)view.findViewById(R.id.tvBday);
-		
-		bday.setText(String.valueOf(cursor.getLong(ciId)));
+		String kundeBday = cursor.getString(ciBday);
+		bday.setText(kundeBday);
+
 		
 	}
 
