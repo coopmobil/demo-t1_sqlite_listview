@@ -36,7 +36,7 @@ public class FormularActivity extends Activity implements OnClickListener{
     	final EditText txtVorname = 
     			(EditText) findViewById(R.id.editText2);
     	final EditText txtBday = 
-    			(EditText) findViewById(R.id.editText3);
+    			(EditText) findViewById(R.id.editText3); 
     	
     	final AdressbuchOpenHandler adressbuchOpenHandler = new AdressbuchOpenHandler(getBaseContext()); 
     	
