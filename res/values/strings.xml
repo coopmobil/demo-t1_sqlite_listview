@@ -4,11 +4,13 @@
     <string name="app_name">demo-t1_sqlite_listview</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
     <string name="name">Name Kunde</string>
     <string name="vorname">Vorname Kunde</string>
-    <string name="bday">Geburtstag Kunde</string>            
-    <string name="foto">Foto Kunde</string>    
-    
-    
+    <string name="bday">Geburtstag Kunde</string>
+    <string name="foto">Foto Kunde</string>
+    <string name="insert_success">Der Adressbucheintrag wurde erfolgreich angelegt.</string>
+    <string name="insert_failure">Der Adressbucheintrag konnte nicht angelegt werden.</string>
+    <string name="update_success">Der Adressbucheintrag wurde erfolgreich aktualisiert.</string>
+    <string name="update_failure">Der Adressbucheintrag konnte nicht aktualisiert werden.</string>
+
 </resources>

@@ -55,7 +55,11 @@ public final class R {
         public static final int bday=0x7f050005;
         public static final int foto=0x7f050006;
         public static final int hello_world=0x7f050002;
+        public static final int insert_failure=0x7f050008;
+        public static final int insert_success=0x7f050007;
         public static final int name=0x7f050003;
+        public static final int update_failure=0x7f05000a;
+        public static final int update_success=0x7f050009;
         public static final int vorname=0x7f050004;
     }
     public static final class style {

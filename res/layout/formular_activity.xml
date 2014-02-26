@@ -11,7 +11,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="34dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
 
     <TextView
         android:id="@+id/textView1"
@@ -23,79 +26,73 @@
         android:text="@string/name"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-   
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnNeuerKontaktSpeichern"
+        android:layout_below="@+id/editText3"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="94dp"
+        android:src="@drawable/ic_launcher" />
 
-     <ImageView
-         android:id="@+id/imageView1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/btnNeuerKontaktSpeichern"
-         android:layout_below="@+id/editText3"
-         android:layout_marginLeft="24dp"
-         android:layout_marginTop="94dp"
-         android:src="@drawable/ic_launcher" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:text="@string/foto"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-     <TextView
-         android:id="@+id/textView4"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/imageView1"
-         android:layout_alignParentLeft="true"
-         android:text="@string/foto"
-         android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="date" >
+    </EditText>
 
-     <EditText
-         android:id="@+id/editText3"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/textView3"
-         android:layout_alignParentRight="true"
-         android:ems="10"
-         android:inputType="date" >
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="74dp"
+        android:layout_toLeftOf="@+id/editText3"
+        android:text="@string/bday"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-         <requestFocus />
-     </EditText>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/editText2"
+        android:text="@string/vorname"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-     <TextView
-         android:id="@+id/textView3"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
-         android:layout_below="@+id/textView1"
-         android:layout_marginTop="74dp"
-         android:layout_toLeftOf="@+id/editText3"
-         android:text="@string/bday"
-         android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-     <TextView
-         android:id="@+id/textView2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/editText1"
-         android:layout_marginTop="18dp"
-         android:layout_toLeftOf="@+id/editText2"
-         android:text="@string/vorname"
-         android:textAppearance="?android:attr/textAppearanceMedium" /> 
-
-     <EditText
-         android:id="@+id/editText2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignBottom="@+id/textView2"
-         android:layout_alignParentRight="true"
-         android:ems="10"
-         android:inputType="textPersonName" />
-     
-     
-       <Button
-         android:id="@+id/btnNeuerKontaktSpeichern"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginBottom="20dp"
-         android:layout_marginRight="22dp"
-         android:text="Speichern" />
+    <Button
+        android:id="@+id/btnNeuerKontaktSpeichern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="22dp"
+        android:text="Speichern" />
 
 </RelativeLayout>
-
