@@ -1,27 +1,29 @@
 package com.example.demo_t1_sqlite_listview;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.demo_t1_sqlite_listview.database.AdressbuchAdapter;
 import com.example.demo_t1_sqlite_listview.database.AdressbuchOpenHandler;
 
-public class MainActivity extends Activity implements OnClickListener,
+public class MainActivity extends Activity implements 
 		OnItemClickListener {
 	private AdressbuchOpenHandler dbHandler;
 	private AdressbuchAdapter adapter;
 	private ListView liste;
-	private Button neuerKontakt;
-
+	
+	// private ActionBar actionBar;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,6 +31,8 @@ public class MainActivity extends Activity implements OnClickListener,
 		liste = (ListView) findViewById(R.id.liste);
 		dbHandler = new AdressbuchOpenHandler(this);
 
+	//	actionBar = getActionBar();
+		
 		Cursor c = dbHandler.query();
 
 		adapter = new AdressbuchAdapter(this, c);
@@ -36,11 +40,25 @@ public class MainActivity extends Activity implements OnClickListener,
 		liste.setAdapter(adapter);
 		liste.setOnItemClickListener(this);
 
-		neuerKontakt = (Button) findViewById(R.id.btnNeuerKontakt);
-		neuerKontakt.setOnClickListener(this);
-
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_search:
+//	            openSearch();
+	            return true;
+	        case R.id.action_new:
+	    		Intent intent = new Intent(this, FormularActivity.class);
+	    		startActivity(intent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -48,20 +66,14 @@ public class MainActivity extends Activity implements OnClickListener,
 		adapter.notifyDataSetChanged();
 	}
 
-	/**
-	 * Interface OnClickListener
-	 */
-	@Override
-	public void onClick(View v) {
-		Intent intent = new Intent(this, FormularActivity.class);
-		startActivity(intent);
-	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		// getMenuInflater().inflate(R.menu.main, menu);
+  	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.main_activity_actions, menu);
+	    return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override

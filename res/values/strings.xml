@@ -12,5 +12,9 @@
     <string name="insert_failure">Der Adressbucheintrag konnte nicht angelegt werden.</string>
     <string name="update_success">Der Adressbucheintrag wurde erfolgreich aktualisiert.</string>
     <string name="update_failure">Der Adressbucheintrag konnte nicht aktualisiert werden.</string>
+    
+    <string name="action_search">Kontakt suchen</string>
+    <string name="action_new">neuer Kontakt</string>       
+    <string name="action_all_delete">alle Kontakte löschen</string>    
 
 </resources>
