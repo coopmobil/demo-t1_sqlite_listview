@@ -16,5 +16,6 @@
     <string name="action_search">Kontakt suchen</string>
     <string name="action_new">neuer Kontakt</string>       
     <string name="action_all_delete">alle Kontakte löschen</string>    
-
+    <string name="delete_ok">Adressbuch wurde geleert</string>    
+    
 </resources>

@@ -104,4 +104,10 @@ public class FormularActivity extends Activity implements OnClickListener {
 
 		finish();
 	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		adressbuchOpenHandler.close();
+	}
 }

@@ -1,6 +1,5 @@
 package com.example.demo_t1_sqlite_listview.database;
 
-import android.R.bool;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -101,6 +100,24 @@ public class AdressbuchOpenHandler extends SQLiteOpenHelper {
 		}
 		return isSuccessful;
 
+	}
+
+	public void deleteAll() {
+		try {
+			// Datenbank öffnen
+			SQLiteDatabase db = getWritableDatabase();
+
+			// aus der Tabelle Eintraege loeschen
+			db.delete(TABLE_NAME_EINTRAG, null, null);
+			
+			// Datenbank schliessen
+			db.close();
+			
+		} catch (SQLiteException e) {
+			Log.e("AdressbuchOpenHandler", "delete()", e);
+		} finally {
+
+		}
 	}
 
 	public Cursor queryEintrag(long id) {
