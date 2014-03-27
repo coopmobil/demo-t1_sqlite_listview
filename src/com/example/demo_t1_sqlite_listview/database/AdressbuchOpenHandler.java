@@ -1,8 +1,10 @@
 package com.example.demo_t1_sqlite_listview.database;
 
+import android.R;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -109,15 +111,37 @@ public class AdressbuchOpenHandler extends SQLiteOpenHelper {
 
 			// aus der Tabelle Eintraege loeschen
 			db.delete(TABLE_NAME_EINTRAG, null, null);
-			
+
 			// Datenbank schliessen
-			db.close();
-			
+			// db.close();
+
 		} catch (SQLiteException e) {
 			Log.e("AdressbuchOpenHandler", "delete()", e);
 		} finally {
 
 		}
+	}
+
+	public Cursor fetchByName(String inputText) throws SQLException {
+
+		SQLiteDatabase db = getWritableDatabase();
+		Cursor mCursor = null;
+		if (inputText == null || inputText.length() == 0) {
+			mCursor = db.query(TABLE_NAME_EINTRAG, null, null, null, null,
+					null, _ID + " DESC");
+
+		} else {
+			mCursor = db.query(true, TABLE_NAME_EINTRAG,
+					// new String[] {KEY_ROWID, KEY_CODE, KEY_NAME,
+					// KEY_CONTINENT, KEY_REGION},
+					null, EINTRAG_NAME + " like '%" + inputText + "%'", null,
+					null, null, null, null);
+		}
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
+		return mCursor;
+
 	}
 
 	public Cursor queryEintrag(long id) {

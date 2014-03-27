@@ -48,6 +48,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		switch (item.getItemId()) {
 		case R.id.action_search:
 			// openSearch();
+			
+			Cursor c = dbHandler.fetchByName("genadi");
+			adapter = new AdressbuchAdapter(this, c);
+
+			liste.setAdapter(adapter);
+//			liste.setOnItemClickListener(this);
+
 			return true;
 		case R.id.action_new:
 			Intent intent = new Intent(this, FormularActivity.class);
