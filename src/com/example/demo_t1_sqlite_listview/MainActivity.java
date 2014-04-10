@@ -1,6 +1,5 @@
 package com.example.demo_t1_sqlite_listview;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.ShareActionProvider;
 import android.widget.Toast;
 
 import com.example.demo_t1_sqlite_listview.database.AdressbuchAdapter;
@@ -21,6 +21,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private AdressbuchOpenHandler dbHandler;
 	private AdressbuchAdapter adapter;
 	private ListView liste;
+	private ShareActionProvider mShareActionProvider;
 
 	// private ActionBar actionBar;
 
@@ -90,7 +91,21 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		// getMenuInflater().inflate(R.menu.main, menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.main_activity_actions, menu);
-		return super.onCreateOptionsMenu(menu);
+		
+		   // Locate MenuItem with ShareActionProvider
+	    MenuItem item = menu.findItem(R.id.action_share);
+
+	    // Fetch and store ShareActionProvider
+	    mShareActionProvider = (ShareActionProvider) item.getActionProvider();
+	    
+	    Intent sendIntent = new Intent();
+	    sendIntent.setAction(Intent.ACTION_SEND);
+	    sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+	    sendIntent.putExtra(Intent.EXTRA_SUBJECT, "subject  TITLE");
+	    sendIntent.setType("text/plain");
+	    setShareIntent(sendIntent);
+		
+	    return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
@@ -100,5 +115,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		intent.putExtra(FormularActivity.PARAM_EINTRAG_ID, eintragId);
 		startActivity(intent);
 	}
-
+	
+	// Call to update the share intent
+	private void setShareIntent(Intent shareIntent) {
+	    if (mShareActionProvider != null) {
+	        mShareActionProvider.setShareIntent(shareIntent);
+	    }
+	}
 }

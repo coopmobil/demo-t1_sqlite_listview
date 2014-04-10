@@ -26,17 +26,19 @@ public final class R {
         public static final int ic_delete=0x7f020002;
         public static final int ic_launcher=0x7f020003;
         public static final int ic_menu_invite=0x7f020004;
+        public static final int ic_share=0x7f020005;
     }
     public static final class id {
-        public static final int action_all_delete=0x7f080012;
-        public static final int action_new=0x7f080010;
-        public static final int action_search=0x7f08000f;
+        public static final int action_all_delete=0x7f080013;
+        public static final int action_new=0x7f080011;
+        public static final int action_search=0x7f080010;
         public static final int action_settings=0x7f08000e;
+        public static final int action_share=0x7f08000f;
         public static final int btnNeuerKontaktSpeichern=0x7f080006;
         public static final int editText1=0x7f080002;
         public static final int editText2=0x7f08000a;
         public static final int editText3=0x7f080007;
-        public static final int empty=0x7f080011;
+        public static final int empty=0x7f080012;
         public static final int icon=0x7f08000b;
         public static final int imageView1=0x7f080005;
         public static final int info=0x7f080001;
@@ -58,13 +60,14 @@ public final class R {
         public static final int main_activity_actions=0x7f070001;
     }
     public static final class string {
-        public static final int action_all_delete=0x7f05000d;
-        public static final int action_new=0x7f05000c;
-        public static final int action_search=0x7f05000b;
+        public static final int action_all_delete=0x7f05000e;
+        public static final int action_new=0x7f05000d;
+        public static final int action_search=0x7f05000c;
         public static final int action_settings=0x7f050001;
+        public static final int action_share=0x7f05000b;
         public static final int app_name=0x7f050000;
         public static final int bday=0x7f050005;
-        public static final int delete_ok=0x7f05000e;
+        public static final int delete_ok=0x7f05000f;
         public static final int foto=0x7f050006;
         public static final int hello_world=0x7f050002;
         public static final int insert_failure=0x7f050008;
